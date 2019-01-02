@@ -8,7 +8,6 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
 
 class ItemsCollectionViewController: UICollectionViewController {
 
@@ -18,8 +17,6 @@ class ItemsCollectionViewController: UICollectionViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -48,7 +45,7 @@ class ItemsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
     
         // Configure the cell
     

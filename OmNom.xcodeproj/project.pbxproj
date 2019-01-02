@@ -13,6 +13,8 @@
 		E33C8C2A21D9FF0C00261D2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33C8C2921D9FF0C00261D2C /* Assets.xcassets */; };
 		E33C8C2D21D9FF0C00261D2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E33C8C2B21D9FF0C00261D2C /* LaunchScreen.storyboard */; };
 		E33C8C3521DA2BDA00261D2C /* ItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C8C3421DA2BDA00261D2C /* ItemsCollectionViewController.swift */; };
+		E3E686E621DCCCD600B13BDF /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */; };
+		E3E686E821DCCEDB00B13BDF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686E721DCCEDB00B13BDF /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E33C8C2C21D9FF0C00261D2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E33C8C2E21D9FF0C00261D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E33C8C3421DA2BDA00261D2C /* ItemsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewController.swift; sourceTree = "<group>"; };
+		E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		E3E686E721DCCEDB00B13BDF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				E33C8C1F21D9FF0900261D2C /* AppDelegate.swift */,
+				E3E686E921DCCFB600B13BDF /* Service */,
 				E33C8C3821DA2C5D00261D2C /* Models */,
 				E33C8C3721DA2C4B00261D2C /* Controllers */,
 				E33C8C3621DA2C3900261D2C /* Views */,
@@ -80,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				E33C8C3421DA2BDA00261D2C /* ItemsCollectionViewController.swift */,
+				E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -87,8 +93,16 @@
 		E33C8C3821DA2C5D00261D2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3E686E721DCCEDB00B13BDF /* Item.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E3E686E921DCCFB600B13BDF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E686E821DCCEDB00B13BDF /* Item.swift in Sources */,
 				E33C8C2821D9FF0900261D2C /* OmNom.xcdatamodeld in Sources */,
+				E3E686E621DCCCD600B13BDF /* ItemCollectionViewCell.swift in Sources */,
 				E33C8C3521DA2BDA00261D2C /* ItemsCollectionViewController.swift in Sources */,
 				E33C8C2021D9FF0900261D2C /* AppDelegate.swift in Sources */,
 			);

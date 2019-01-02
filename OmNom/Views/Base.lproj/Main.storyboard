@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Vendor name-->
+        <!--Vendor Name-->
         <scene sceneID="1N2-Hm-60m">
             <objects>
                 <collectionViewController id="hbA-Il-9xq" customClass="ItemsCollectionViewController" customModule="OmNom" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,32 +19,82 @@
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZJV-Th-Ciy">
                             <size key="itemSize" width="375" height="100"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="vendorDetailsCell" id="8b9-5X-kM1">
-                                <rect key="frame" x="0.0" y="50" width="375" height="100"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemCell" id="8b9-5X-kM1" customClass="ItemCollectionViewCell" customModule="OmNom" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUA-P4-z7D">
+                                            <rect key="frame" x="337" y="8" width="30" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="LEu-Fu-pBn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <state key="normal" title="＋"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot Chocolate Fudge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL6-aT-fgh">
+                                            <rect key="frame" x="16" y="8" width="158" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15t-R5-pa0">
+                                            <rect key="frame" x="16" y="54.5" width="343" height="15.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹123.45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzt-Z3-i7R">
+                                            <rect key="frame" x="16" y="34" width="43.5" height="14.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cST-yQ-ec7">
+                                            <rect key="frame" x="328" y="8" width="9" height="19"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Zzt-Z3-i7R" firstAttribute="leading" secondItem="8b9-5X-kM1" secondAttribute="leadingMargin" constant="8" id="22l-vi-iD4"/>
+                                    <constraint firstItem="kL6-aT-fgh" firstAttribute="top" secondItem="8b9-5X-kM1" secondAttribute="top" constant="8" id="DU5-A0-fyS"/>
+                                    <constraint firstItem="kL6-aT-fgh" firstAttribute="leading" secondItem="8b9-5X-kM1" secondAttribute="leadingMargin" constant="8" id="G5O-hG-waz"/>
+                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Zzt-Z3-i7R" secondAttribute="trailing" constant="8" id="MaV-ag-Y9v"/>
+                                    <constraint firstItem="Zzt-Z3-i7R" firstAttribute="top" secondItem="kL6-aT-fgh" secondAttribute="bottom" constant="6" id="Mlo-IX-MyJ"/>
+                                    <constraint firstItem="cST-yQ-ec7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kL6-aT-fgh" secondAttribute="trailing" constant="5" id="Ojn-pR-lth"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="15t-R5-pa0" secondAttribute="trailing" constant="8" id="WOm-nw-Ntn"/>
+                                    <constraint firstAttribute="trailing" secondItem="zUA-P4-z7D" secondAttribute="trailing" constant="8" id="a0d-49-OnQ"/>
+                                    <constraint firstItem="zUA-P4-z7D" firstAttribute="top" secondItem="8b9-5X-kM1" secondAttribute="top" constant="8" id="bwt-OB-8dT"/>
+                                    <constraint firstItem="15t-R5-pa0" firstAttribute="leading" secondItem="8b9-5X-kM1" secondAttribute="leadingMargin" constant="8" id="huC-77-t5K"/>
+                                    <constraint firstItem="zUA-P4-z7D" firstAttribute="leading" secondItem="cST-yQ-ec7" secondAttribute="trailing" id="iTc-aP-Foi"/>
+                                    <constraint firstItem="15t-R5-pa0" firstAttribute="top" secondItem="Zzt-Z3-i7R" secondAttribute="bottom" constant="6" id="ihy-63-Rv6"/>
+                                    <constraint firstItem="cST-yQ-ec7" firstAttribute="top" secondItem="8b9-5X-kM1" secondAttribute="top" constant="8" id="wb1-Rt-ecv"/>
+                                </constraints>
+                                <size key="customSize" width="375" height="80"/>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="15t-R5-pa0" id="VuR-vN-I1A"/>
+                                    <outlet property="itemNameLabel" destination="kL6-aT-fgh" id="MdP-80-sJO"/>
+                                    <outlet property="priceLabel" destination="Zzt-Z3-i7R" id="x3F-lg-R7o"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionHeaderView" id="6T1-1l-0QG">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="hbA-Il-9xq" id="4Zo-RE-oau"/>
                             <outlet property="delegate" destination="hbA-Il-9xq" id="WOQ-r8-t5U"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Vendor name" id="TSD-LK-u7t"/>
+                    <navigationItem key="navigationItem" title="Vendor Name" id="TSD-LK-u7t"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAR-os-eAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
