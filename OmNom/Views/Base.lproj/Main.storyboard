@@ -84,7 +84,7 @@
                                 <size key="customSize" width="375" height="80"/>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="15t-R5-pa0" id="VuR-vN-I1A"/>
-                                    <outlet property="itemNameLabel" destination="kL6-aT-fgh" id="MdP-80-sJO"/>
+                                    <outlet property="nameLabel" destination="kL6-aT-fgh" id="MdP-80-sJO"/>
                                     <outlet property="priceLabel" destination="Zzt-Z3-i7R" id="x3F-lg-R7o"/>
                                 </connections>
                             </collectionViewCell>

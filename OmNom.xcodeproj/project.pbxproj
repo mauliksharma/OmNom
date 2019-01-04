@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F02703285FF630E31E0F7FB /* Pods_OmNom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C0BC2B4333629B7773B054 /* Pods_OmNom.framework */; };
 		E33C8C2021D9FF0900261D2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C8C1F21D9FF0900261D2C /* AppDelegate.swift */; };
 		E33C8C2521D9FF0900261D2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E33C8C2321D9FF0900261D2C /* Main.storyboard */; };
 		E33C8C2821D9FF0900261D2C /* OmNom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E33C8C2621D9FF0900261D2C /* OmNom.xcdatamodeld */; };
@@ -15,9 +16,12 @@
 		E33C8C3521DA2BDA00261D2C /* ItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C8C3421DA2BDA00261D2C /* ItemsCollectionViewController.swift */; };
 		E3E686E621DCCCD600B13BDF /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */; };
 		E3E686E821DCCEDB00B13BDF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686E721DCCEDB00B13BDF /* Item.swift */; };
+		E3E686EB21DEE20700B13BDF /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686EA21DEE20700B13BDF /* WebServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6270AF4C18F653B8706E0BC /* Pods-OmNom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmNom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmNom/Pods-OmNom.debug.xcconfig"; sourceTree = "<group>"; };
+		BF83F6903D50F0AA0CB428AC /* Pods-OmNom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmNom.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmNom/Pods-OmNom.release.xcconfig"; sourceTree = "<group>"; };
 		E33C8C1C21D9FF0900261D2C /* OmNom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmNom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33C8C1F21D9FF0900261D2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E33C8C2421D9FF0900261D2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		E33C8C3421DA2BDA00261D2C /* ItemsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewController.swift; sourceTree = "<group>"; };
 		E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3E686E721DCCEDB00B13BDF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E3E686EA21DEE20700B13BDF /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
+		F6C0BC2B4333629B7773B054 /* Pods_OmNom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmNom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F02703285FF630E31E0F7FB /* Pods_OmNom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04838A4DB0C56E60AA1FD170 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6C0BC2B4333629B7773B054 /* Pods_OmNom.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E33C8C1321D9FF0900261D2C = {
 			isa = PBXGroup;
 			children = (
 				E33C8C1E21D9FF0900261D2C /* OmNom */,
 				E33C8C1D21D9FF0900261D2C /* Products */,
+				F8D9814FE8655704700017B3 /* Pods */,
+				04838A4DB0C56E60AA1FD170 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,8 +118,18 @@
 		E3E686E921DCCFB600B13BDF /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E3E686EA21DEE20700B13BDF /* WebServiceManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		F8D9814FE8655704700017B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6270AF4C18F653B8706E0BC /* Pods-OmNom.debug.xcconfig */,
+				BF83F6903D50F0AA0CB428AC /* Pods-OmNom.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,9 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E33C8C3121D9FF0C00261D2C /* Build configuration list for PBXNativeTarget "OmNom" */;
 			buildPhases = (
+				2405DAC0EA7163848D9110DD /* [CP] Check Pods Manifest.lock */,
 				E33C8C1821D9FF0900261D2C /* Sources */,
 				E33C8C1921D9FF0900261D2C /* Frameworks */,
 				E33C8C1A21D9FF0900261D2C /* Resources */,
+				8D01E6CC3F96F0D25DA1DDA9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +200,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2405DAC0EA7163848D9110DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OmNom-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D01E6CC3F96F0D25DA1DDA9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OmNom/Pods-OmNom-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmNom/Pods-OmNom-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E33C8C1821D9FF0900261D2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -178,6 +254,7 @@
 			files = (
 				E3E686E821DCCEDB00B13BDF /* Item.swift in Sources */,
 				E33C8C2821D9FF0900261D2C /* OmNom.xcdatamodeld in Sources */,
+				E3E686EB21DEE20700B13BDF /* WebServiceManager.swift in Sources */,
 				E3E686E621DCCCD600B13BDF /* ItemCollectionViewCell.swift in Sources */,
 				E33C8C3521DA2BDA00261D2C /* ItemsCollectionViewController.swift in Sources */,
 				E33C8C2021D9FF0900261D2C /* AppDelegate.swift in Sources */,
@@ -324,6 +401,7 @@
 		};
 		E33C8C3221D9FF0C00261D2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6270AF4C18F653B8706E0BC /* Pods-OmNom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -342,6 +420,7 @@
 		};
 		E33C8C3321D9FF0C00261D2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF83F6903D50F0AA0CB428AC /* Pods-OmNom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

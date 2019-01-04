@@ -12,6 +12,6 @@ struct Item {
     var id: String?
     var name: String?
     var description: String?
-    var price: Int?
+    var price: Double?
     var imgURLString: String?
 }
