@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8F02703285FF630E31E0F7FB /* Pods_OmNom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C0BC2B4333629B7773B054 /* Pods_OmNom.framework */; };
+		E305518E21DF3598007614AB /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305518D21DF3598007614AB /* Cart.swift */; };
+		E305519021DF35AB007614AB /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E305518F21DF35AB007614AB /* CartItem.swift */; };
 		E33C8C2021D9FF0900261D2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C8C1F21D9FF0900261D2C /* AppDelegate.swift */; };
 		E33C8C2521D9FF0900261D2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E33C8C2321D9FF0900261D2C /* Main.storyboard */; };
 		E33C8C2821D9FF0900261D2C /* OmNom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E33C8C2621D9FF0900261D2C /* OmNom.xcdatamodeld */; };
@@ -17,12 +19,14 @@
 		E3E686E621DCCCD600B13BDF /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */; };
 		E3E686E821DCCEDB00B13BDF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686E721DCCEDB00B13BDF /* Item.swift */; };
 		E3E686EB21DEE20700B13BDF /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686EA21DEE20700B13BDF /* WebServiceManager.swift */; };
-		E3E686ED21DEE81300B13BDF /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686EC21DEE81300B13BDF /* Vendor.swift */; };
+		E3E686ED21DEE81300B13BDF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686EC21DEE81300B13BDF /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B6270AF4C18F653B8706E0BC /* Pods-OmNom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmNom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmNom/Pods-OmNom.debug.xcconfig"; sourceTree = "<group>"; };
 		BF83F6903D50F0AA0CB428AC /* Pods-OmNom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmNom.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmNom/Pods-OmNom.release.xcconfig"; sourceTree = "<group>"; };
+		E305518D21DF3598007614AB /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		E305518F21DF35AB007614AB /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		E33C8C1C21D9FF0900261D2C /* OmNom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmNom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33C8C1F21D9FF0900261D2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E33C8C2421D9FF0900261D2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,7 +38,7 @@
 		E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3E686E721DCCEDB00B13BDF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E3E686EA21DEE20700B13BDF /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
-		E3E686EC21DEE81300B13BDF /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
+		E3E686EC21DEE81300B13BDF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F6C0BC2B4333629B7773B054 /* Pods_OmNom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmNom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,7 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				E3E686E721DCCEDB00B13BDF /* Item.swift */,
-				E3E686EC21DEE81300B13BDF /* Vendor.swift */,
+				E3E686EC21DEE81300B13BDF /* Restaurant.swift */,
+				E305518D21DF3598007614AB /* Cart.swift */,
+				E305518F21DF35AB007614AB /* CartItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,12 +264,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3E686E821DCCEDB00B13BDF /* Item.swift in Sources */,
-				E3E686ED21DEE81300B13BDF /* Vendor.swift in Sources */,
+				E3E686ED21DEE81300B13BDF /* Restaurant.swift in Sources */,
 				E33C8C2821D9FF0900261D2C /* OmNom.xcdatamodeld in Sources */,
 				E3E686EB21DEE20700B13BDF /* WebServiceManager.swift in Sources */,
+				E305519021DF35AB007614AB /* CartItem.swift in Sources */,
 				E3E686E621DCCCD600B13BDF /* ItemCollectionViewCell.swift in Sources */,
 				E33C8C3521DA2BDA00261D2C /* ItemsCollectionViewController.swift in Sources */,
 				E33C8C2021D9FF0900261D2C /* AppDelegate.swift in Sources */,
+				E305518E21DF3598007614AB /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

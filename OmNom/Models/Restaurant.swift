@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Vendor {
+struct Restaurant {
     var id: String?
     var name: String?
 }

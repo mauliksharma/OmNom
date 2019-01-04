@@ -16,9 +16,9 @@ struct WebConstants {
 
 class ItemsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var vendor: Vendor? {
+    var restaurant: Restaurant? {
         didSet {
-//            getItemsFor(vendor: ) //Change getItems to this method
+//            getItemsFor(restaurant: ) //Change getItems to this method
         }
     }
     

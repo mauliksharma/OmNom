@@ -20,10 +20,21 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var updateCartInstanceHandler: ((String) -> Void)?
+    
     func updateCell() {
         guard let item = item else { return }
         nameLabel.text = item.name
         priceLabel.text = "₹\(item.price ?? 0.00)"
         descriptionLabel.text = item.description
     }
+    
+    @IBOutlet var cartInstanceQuantityLabel: UILabel!
+    
+    @IBAction func updateCartInstance(_ sender: UIButton) {
+        guard let itemID = item?.id else { return }
+        updateCartInstanceHandler?(itemID)
+        
+    }
+    
 }
