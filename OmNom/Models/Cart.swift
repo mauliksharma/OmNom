@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
-class Cart: NSManagedObject {
-
+class Cart {
+    static var restaurantID: String?
+    static var cartItems = [CartItem]()
 }

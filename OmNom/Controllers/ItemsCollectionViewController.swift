@@ -9,9 +9,10 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreData
 
 struct WebConstants {
-    static let getItemsaAPI = "http://localhost:8000/items"
+    static let getItemsAPI = "http://localhost:8000/items"
 }
 
 class ItemsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -23,16 +24,16 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     var items = [Item]()
+    
+    var persistentContainer: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
     override func viewDidLoad() {
         super.viewDidLoad()
         getItems()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
     }
     
     func getItems() {
-        Alamofire.AF.request(WebConstants.getItemsaAPI, method: .get).responseJSON { [weak self] response in
+        Alamofire.AF.request(WebConstants.getItemsAPI, method: .get).responseJSON { [weak self] response in
             if response.result.isSuccess {
                 if let value = response.result.value {
                     let menuInfo = JSON(value)
@@ -55,16 +56,10 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         collectionView.reloadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    var updateCartHandler: (String) -> Void = { itemID in
+        
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -72,7 +67,6 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -83,6 +77,7 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
         if let itemCVC = cell as? ItemCollectionViewCell {
             itemCVC.item = items[indexPath.row]
+            itemCVC.updateCartInstanceHandler = updateCartHandler
         }
         return cell
     }
@@ -90,6 +85,16 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 80)
     }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using [segue destinationViewController].
+     // Pass the selected object to the new view controller.
+     }
+     */
 
     // MARK: UICollectionViewDelegate
 

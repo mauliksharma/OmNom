@@ -24,3 +24,11 @@ struct Item {
         imgURLString = json["img"].string
     }
 }
+
+extension Item: Equatable {
+    static func ==(lhs: Item, rhs: Item) -> Bool {
+        guard let lhsID = lhs.id, let rhsID = rhs.id else { return false }
+        return lhsID == rhsID
+    }
+    
+}
