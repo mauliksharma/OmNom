@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Item {
     var id: String?
@@ -14,4 +15,12 @@ struct Item {
     var description: String?
     var price: Double?
     var imgURLString: String?
+    
+    init(json: JSON) {
+        id = json["id"].string
+        name = json["name"].string
+        description = json["description"].string
+        price = json["price"].double
+        imgURLString = json["img"].string
+    }
 }

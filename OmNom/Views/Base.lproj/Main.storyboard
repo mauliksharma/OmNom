@@ -94,7 +94,9 @@
                             <outlet property="delegate" destination="hbA-Il-9xq" id="WOQ-r8-t5U"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Vendor Name" id="TSD-LK-u7t"/>
+                    <navigationItem key="navigationItem" title="Vendor Name" id="TSD-LK-u7t">
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="Opr-5A-gu4"/>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAR-os-eAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

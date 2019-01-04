@@ -7,19 +7,54 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
+struct WebConstants {
+    static let getItemsaAPI = "http://localhost:8000/items"
+}
 
-class ItemsCollectionViewController: UICollectionViewController {
+class ItemsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    var vendor: Vendor? {
+        didSet {
+//            getItemsFor(vendor: ) //Change getItems to this method
+        }
+    }
+    
+    var items = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getItems()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-
-        // Do any additional setup after loading the view.
     }
+    
+    func getItems() {
+        Alamofire.AF.request(WebConstants.getItemsaAPI, method: .get).responseJSON { [weak self] response in
+            if response.result.isSuccess {
+                if let value = response.result.value {
+                    let menuInfo = JSON(value)
+                    print(String(describing: menuInfo))
+                    self?.loadItems(from: menuInfo)
+                }
+            } else {
+                print(String(describing: response.result.error))
+            }
+        }
+    }
+    
+    func loadItems(from json: JSON) {
+        guard let itemsInfo = json["menu"].array else { return }
+        for itemInfo in itemsInfo {
+            let item = Item(json: itemInfo)
+            print(String(describing: item))
+            items.append(item)
+        }
+        collectionView.reloadData()
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -35,21 +70,25 @@ class ItemsCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return items.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
-    
-        // Configure the cell
-    
+        if let itemCVC = cell as? ItemCollectionViewCell {
+            itemCVC.item = items[indexPath.row]
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 80)
     }
 
     // MARK: UICollectionViewDelegate

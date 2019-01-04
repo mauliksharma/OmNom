@@ -17,6 +17,7 @@
 		E3E686E621DCCCD600B13BDF /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */; };
 		E3E686E821DCCEDB00B13BDF /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686E721DCCEDB00B13BDF /* Item.swift */; };
 		E3E686EB21DEE20700B13BDF /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686EA21DEE20700B13BDF /* WebServiceManager.swift */; };
+		E3E686ED21DEE81300B13BDF /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E686EC21DEE81300B13BDF /* Vendor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E3E686E521DCCCD600B13BDF /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3E686E721DCCEDB00B13BDF /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E3E686EA21DEE20700B13BDF /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
+		E3E686EC21DEE81300B13BDF /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		F6C0BC2B4333629B7773B054 /* Pods_OmNom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmNom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				E3E686E721DCCEDB00B13BDF /* Item.swift */,
+				E3E686EC21DEE81300B13BDF /* Vendor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,12 +236,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OmNom/Pods-OmNom-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -253,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3E686E821DCCEDB00B13BDF /* Item.swift in Sources */,
+				E3E686ED21DEE81300B13BDF /* Vendor.swift in Sources */,
 				E33C8C2821D9FF0900261D2C /* OmNom.xcdatamodeld in Sources */,
 				E3E686EB21DEE20700B13BDF /* WebServiceManager.swift in Sources */,
 				E3E686E621DCCCD600B13BDF /* ItemCollectionViewCell.swift in Sources */,
