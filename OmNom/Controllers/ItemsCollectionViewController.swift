@@ -25,10 +25,13 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     
     var items = [Item]()
     
-    var persistentContainer: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let context = container?.viewContext {
+            Cart.sharedInstance.loadAllCartItems(in: context)
+        }
         getItems()
     }
     
@@ -60,12 +63,10 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return items.count
     }
 
