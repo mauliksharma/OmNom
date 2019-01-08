@@ -14,6 +14,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
+    @IBOutlet var cartInstanceView: UIView!
+    @IBOutlet var cartInstanceQuantityLabel: UILabel!
+    
     var item: Item? {
         didSet {
             updateCell()
@@ -31,12 +34,16 @@ class ItemCollectionViewCell: UICollectionViewCell {
         descriptionLabel.text = item.description
     }
     
-    @IBOutlet var cartInstanceQuantityLabel: UILabel!
-    
-    @IBAction func updateCartInstance(_ sender: UIButton) {
+    @IBAction func addToCart(_ sender: UIButton) {
         guard let itemID = item?.id else { return }
-        updateCartInstanceHandler(itemID: itemID)
-        
     }
+
+    @IBAction func decrementQuantity(_ sender: UIButton) {
+    }
+    
+    @IBAction func incrementQuantity(_ sender: UIButton) {
+    }
+    
+
     
 }
