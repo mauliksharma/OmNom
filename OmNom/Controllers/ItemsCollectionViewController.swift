@@ -56,10 +56,6 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         collectionView.reloadData()
     }
     
-    var updateCartHandler: (String) -> Void = { itemID in
-        
-    }
-    
 
     // MARK: UICollectionViewDataSource
 
@@ -77,7 +73,6 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
         if let itemCVC = cell as? ItemCollectionViewCell {
             itemCVC.item = items[indexPath.row]
-            itemCVC.updateCartInstanceHandler = updateCartHandler
         }
         return cell
     }

@@ -20,7 +20,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var updateCartInstanceHandler: ((String) -> Void)?
+    func updateCartInstanceHandler(itemID: String) {
+        
+    }
     
     func updateCell() {
         guard let item = item else { return }
@@ -33,7 +35,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     @IBAction func updateCartInstance(_ sender: UIButton) {
         guard let itemID = item?.id else { return }
-        updateCartInstanceHandler?(itemID)
+        updateCartInstanceHandler(itemID: itemID)
         
     }
     

@@ -12,4 +12,5 @@ import CoreData
 class Cart {
     static var restaurantID: String?
     static var cartItems = [CartItem]()
+    
 }
