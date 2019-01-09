@@ -11,7 +11,7 @@ import CoreData
 
 class CartItem: NSManagedObject {
     
-/*
+
     class func findCartItem(forItemID itemID: String, in context: NSManagedObjectContext) throws -> CartItem? {
         
         let request: NSFetchRequest<CartItem> = CartItem.fetchRequest()
@@ -29,13 +29,14 @@ class CartItem: NSManagedObject {
         return nil
     }
     
-    class func createCartItem(forItemID itemID: String, in context: NSManagedObjectContext) -> CartItem {
+    class func addNewCartItem(forItemID itemID: String, restaurantID resID: String, in context: NSManagedObjectContext) -> CartItem {
         
         let cartItem = CartItem(context: context)
         cartItem.itemID = itemID
         cartItem.quantity = 1
+        
         return cartItem
     }
- */
+
     
 }

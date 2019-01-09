@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class ItemCollectionViewCell: UICollectionViewCell {
     
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
