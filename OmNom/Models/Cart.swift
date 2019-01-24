@@ -19,7 +19,6 @@ class Cart: NSManagedObject {
             let matches = try context.fetch(request)
             if !matches.isEmpty {
                 assert(matches.count == 1, "Cart.findCart -- Database Inconsistency")
-                print("Found the relevant cart")
                 return matches.first
             }
         } catch {
@@ -28,12 +27,12 @@ class Cart: NSManagedObject {
         return nil
     }
     
-    class func doesCartExist(in context: NSManagedObjectContext) -> Bool {
+    class func doesAnotherCartExist(in context: NSManagedObjectContext) -> Bool {
         do {
             let cartCount = try context.count(for: Cart.fetchRequest())
-            assert(cartCount <= 1, "Cart.doesCartExist -- Database Inconsistency")
+            assert(cartCount <= 1, "Cart.doesAnotherCartExist -- Database Inconsistency")
             print("Another cart exists!")
-            return cartCount != 0 ? true : false
+            return cartCount > 0 ? true : false
         } catch {
             print(error)
         }
@@ -54,6 +53,7 @@ class Cart: NSManagedObject {
         
         let cart = Cart(context: context)
         cart.restaurantID = resID
+        print("New Cart Created")
         return cart
     }
     

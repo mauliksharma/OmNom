@@ -29,14 +29,16 @@ class CartItem: NSManagedObject {
         return nil
     }
     
-    class func addNewCartItem(forItemID itemID: String, restaurantID resID: String, in context: NSManagedObjectContext) -> CartItem {
+    class func addNewCartItem(forItemID itemID: String, toCart cart: Cart, in context: NSManagedObjectContext) -> CartItem {
         
         let cartItem = CartItem(context: context)
         cartItem.itemID = itemID
+        cartItem.cart = cart
         cartItem.quantity = 1
-        
         return cartItem
     }
-
     
+    class func removeCartItem(_ cartItem: CartItem, in context: NSManagedObjectContext) {
+        context.delete(cartItem)
+    }
 }

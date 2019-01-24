@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+protocol CartInfoDelegate {
+    func getCart() -> Cart?
+}
 
 class ItemCollectionViewCell: UICollectionViewCell {
     
@@ -20,6 +23,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var cartInstanceView: UIView!
     @IBOutlet var cartInstanceQuantityLabel: UILabel!
+    
+    var cartDelegate: CartInfoDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,8 +56,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     func getCartItemInstanceIfPresent() {
-        if let itemID = item?.id {
-            if let foundCartItem = Cart.sharedInstance.findCartItem(forItemID: itemID) {
+        if let itemID = item?.id, let context = container?.viewContext {
+            if let foundCartItem = try? CartItem.findCartItem(forItemID: itemID, in: context) {
                 cartItem = foundCartItem
                 setCartInstanceQuantityLabel()
             }
@@ -65,9 +70,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    @IBAction func addToCart(_ sender: UIButton) {
-        guard let itemID = item?.id, let context = container?.viewContext else { return }
-        cartItem = Cart.sharedInstance.addNewCartItem(forItemID: itemID, in: context)
+    @IBAction func addItemToCart(_ sender: UIButton) {
+        guard let itemID = item?.id, let cart = cartDelegate?.getCart(), let context = container?.viewContext else { return }
+        cartItem = CartItem.addNewCartItem(forItemID: itemID, toCart: cart, in: context)
         saveCartUpdate()
         setCartInstanceQuantityLabel()
     }
@@ -75,7 +80,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     @IBAction func decrementQuantity(_ sender: UIButton) {
         if let cartItem = cartItem, let context = container?.viewContext {
             if cartItem.quantity == 1 {
-                Cart.sharedInstance.removeCartItem(cartItem, in: context)
+                CartItem.removeCartItem(cartItem, in: context)
                 self.cartItem = nil
             }
             self.cartItem?.quantity -= 1

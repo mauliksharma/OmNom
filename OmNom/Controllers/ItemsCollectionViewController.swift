@@ -15,23 +15,24 @@ struct WebConstants {
     static let getItemsAPI = "http://localhost:8000/items"
 }
 
-class ItemsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ItemsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, CartInfoDelegate {
     
     var restaurant: Restaurant? {
         didSet {
-//            getItemsFor(restaurant: ) //Change getItems to this method
+            title = restaurant?.name
+//            getItemsFor(restaurant: )
         }
     }
-    
     var items = [Item]()
+    var cart: Cart?
+    
     
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let context = container?.viewContext {
-            Cart.sharedInstance.loadAllCartItems(in: context)
-        }
+        restaurant = Restaurant(id: "0UMMY12", name: "Ice-cream Corner")
+        loadExistingCartIfPresent()
         getItems()
     }
     
@@ -59,6 +60,29 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         collectionView.reloadData()
     }
     
+    func loadExistingCartIfPresent() {
+        guard let resID = restaurant?.id, let context = container?.viewContext else { return }
+        if let existingCart = try? Cart.findCart(forRestaurantID: resID, in: context), existingCart != nil {
+            cart = existingCart!
+            print("Loaded existing cart")
+        } else {
+            print("No existing cart found")
+        }
+    }
+    
+    func getCart() -> Cart? {
+        if cart != nil {
+            return cart!
+        }
+        guard let resID = restaurant?.id, let context = container?.viewContext else { return nil }
+        if Cart.doesAnotherCartExist(in: context) {
+            //pop up clear cart alert
+            Cart.deleteExistingCart(in: context)
+        }
+        cart = Cart.createCart(forRestaurantID: resID, in: context)
+        return cart!
+    }
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -74,6 +98,7 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
         if let itemCVC = cell as? ItemCollectionViewCell {
             itemCVC.item = items[indexPath.row]
+            itemCVC.cartDelegate = self
         }
         return cell
     }
