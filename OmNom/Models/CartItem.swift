@@ -12,10 +12,12 @@ import CoreData
 class CartItem: NSManagedObject {
     
 
-    class func findCartItem(forItemID itemID: String, in context: NSManagedObjectContext) throws -> CartItem? {
+    class func findCartItem(forItemID itemID: String, inCart cart: Cart, in context: NSManagedObjectContext) throws -> CartItem? {
         
         let request: NSFetchRequest<CartItem> = CartItem.fetchRequest()
-        request.predicate = NSPredicate(format: "itemID = %@", itemID)
+        let itemPredicate = NSPredicate(format: "itemID = %@", itemID)
+        let cartPredicate = NSPredicate(format: "cart = %@", cart)
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [itemPredicate, cartPredicate])
         do {
             let matches = try context.fetch(request)
             if !matches.isEmpty {

@@ -31,7 +31,7 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        restaurant = Restaurant(id: "0UMMY12", name: "Ice-cream Corner")
+        restaurant = Restaurant(id: "0UMMY13", name: "Ice-cream Corner")
         loadExistingCartIfPresent()
         getItems()
     }
@@ -97,8 +97,8 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
         if let itemCVC = cell as? ItemCollectionViewCell {
-            itemCVC.item = items[indexPath.row]
             itemCVC.cartDelegate = self
+            itemCVC.item = items[indexPath.row]
         }
         return cell
     }

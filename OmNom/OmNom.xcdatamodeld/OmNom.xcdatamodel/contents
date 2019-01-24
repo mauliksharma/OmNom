@@ -10,7 +10,7 @@
         <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart" inverseName="cartItems" inverseEntity="Cart" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CartItem" positionX="12779.4296875" positionY="-6173.375" width="128" height="88"/>
         <element name="Cart" positionX="12618" positionY="-6174" width="128" height="73"/>
+        <element name="CartItem" positionX="12779.4296875" positionY="-6173.375" width="128" height="88"/>
     </elements>
 </model>

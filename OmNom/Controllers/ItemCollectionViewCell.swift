@@ -21,7 +21,13 @@ class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
-    @IBOutlet var cartInstanceView: UIView!
+    @IBOutlet var cartInstanceView: UIView! {
+        didSet {
+            cartInstanceView.layer.cornerRadius = 4
+            cartInstanceView.layer.borderWidth = 1
+            cartInstanceView.layer.borderColor = #colorLiteral(red: 0, green: 0.5690457821, blue: 0.5746168494, alpha: 1)
+        }
+    }
     @IBOutlet var cartInstanceQuantityLabel: UILabel!
     
     var cartDelegate: CartInfoDelegate?
@@ -56,8 +62,8 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
     
     func getCartItemInstanceIfPresent() {
-        if let itemID = item?.id, let context = container?.viewContext {
-            if let foundCartItem = try? CartItem.findCartItem(forItemID: itemID, in: context) {
+        if let itemID = item?.id, let cart = (cartDelegate as? ItemsCollectionViewController)?.cart, let context = container?.viewContext {
+            if let foundCartItem = try? CartItem.findCartItem(forItemID: itemID, inCart: cart, in: context) {
                 cartItem = foundCartItem
                 setCartInstanceQuantityLabel()
             }
