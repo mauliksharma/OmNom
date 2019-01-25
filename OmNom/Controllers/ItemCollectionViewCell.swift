@@ -21,6 +21,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
+    @IBOutlet var addButton: UIButton!
     @IBOutlet var cartInstanceView: UIView! {
         didSet {
             cartInstanceView.layer.cornerRadius = 4
@@ -54,9 +55,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
     var cartItem: CartItem? {
         didSet {
             if cartItem != nil {
-                cartInstanceView.isHidden = false
+                addButton.isHidden = true
             } else {
-                cartInstanceView.isHidden = true
+                addButton.isHidden = false
             }
         }
     }
@@ -108,10 +109,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
         if let context = container?.viewContext {
             do {
                 try context.save()
-                print("Update saved")
+//                print("Update saved")
             }
             catch {
-                print("Save failed \(error)")
+//                print("Save failed \(error)")
             }
         }
     }
