@@ -15,7 +15,7 @@ struct WebConstants {
     static let getItemsAPI = "http://localhost:8000/items"
 }
 
-class ItemsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, CartInfoDelegate {
+class ItemsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchResultsUpdating, CartInfoDelegate {
     
     var restaurant: Restaurant? {
         didSet {
@@ -24,14 +24,18 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
         }
     }
     var items = [Item]()
+    var filteredItems = [Item]()
     var cart: Cart?
     
     
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    
+    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        restaurant = Restaurant(id: "0UMMY13", name: "Ice-cream Corner")
+        setupSearchController()
+        restaurant = Restaurant(id: "0UMMY13", name: "Simba's Bistro")
         loadExistingCartIfPresent()
         getItems()
     }
@@ -91,20 +95,49 @@ class ItemsCollectionViewController: UICollectionViewController, UICollectionVie
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return isSearching ? filteredItems.count : items.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
         if let itemCVC = cell as? ItemCollectionViewCell {
             itemCVC.cartDelegate = self
-            itemCVC.item = items[indexPath.row]
+            itemCVC.item = isSearching ? filteredItems[indexPath.row] : items[indexPath.row]
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 80)
+    }
+    
+    // MARK: - UISearchResultsUpdating Delegate
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterItemsFor(searchText: searchController.searchBar.text!)
+        collectionView.reloadData()
+    }
+    
+    func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Know your cookie?"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    // MARK: - Convenience Variables/Methods
+    
+    var isSearching: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
+    var searchBarIsEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterItemsFor(searchText: String) {
+        filteredItems = items.filter { $0.name?.lowercased().contains(searchText.lowercased()) ?? false }
     }
     
     /*
